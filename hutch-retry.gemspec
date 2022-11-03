@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Michał Marcinkowski"]
   spec.email = ["michal@marcinkowski.io"]
 
-  spec.summary = "TBD"
-  spec.description = "TBD"
+  spec.summary = "Reprocess failed messages using an exponential backoff algorithm"
+  spec.description = "Reprocess failed messages using an exponential backoff algorithm"
   spec.homepage = "https://www.github.com/Motimate/hutch-retry"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
