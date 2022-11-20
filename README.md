@@ -4,11 +4,11 @@ Hutch-retry is an extension for [hutch](https://github.com/ruby-amqp/hutch) fram
 
 ## Requirements
 
-- `hutch 1.1.1` - this library use monkey patch to add retry mechanism
+- `hutch 1.1.1` - this library uses monkey patch to add retry mechanism
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Install the gem and add it to the application's Gemfile by executing:
 
     $ bundle add hutch-retry
 
