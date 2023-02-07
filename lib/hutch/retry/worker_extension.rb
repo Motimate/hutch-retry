@@ -30,7 +30,7 @@ module Hutch
         message = Message.new(delivery_info, properties, payload, serializer)
         consumer_instance = consumer.new.tap { |c| c.broker, c.delivery_info = @broker, delivery_info }
         with_tracing(consumer_instance).handle(message)
-        @broker.ack(delivery_info.delivery_tag)
+        @broker.ack(delivery_info.delivery_tag) unless consumer_instance.message_rejected?
       rescue => ex
         if consumer.include?(Hutch::Retry::Consumer)
           handle_retry(consumer, delivery_info, properties, payload, ex)

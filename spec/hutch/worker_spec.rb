@@ -75,6 +75,7 @@ RSpec.describe Hutch::Worker do
       allow(broker).to receive(:nack)
       allow(consumer_instance).to receive(:broker=)
       allow(consumer_instance).to receive(:delivery_info=)
+      allow(consumer_instance).to receive(:message_rejected?)
     end
 
     context "when the retry consumer fails" do
