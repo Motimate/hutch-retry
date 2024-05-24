@@ -44,6 +44,7 @@ module Hutch
         case ex
         when *consumer.get_retry_on
           current_retry_count = (properties[:headers] || {}).fetch("backoff-delay-count", 0)
+          consumer.current_retry_count = current_retry_count
 
           if current_retry_count < consumer.get_max_retries
             logger.debug "Retry message_id=#{properties[:message_id]} counter=#{current_retry_count + 1}"

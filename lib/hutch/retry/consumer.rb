@@ -10,6 +10,14 @@ module Hutch
           @max_retries = counter
         end
 
+        def current_retry_count=(count)
+          @current_retry_count = count
+        end
+
+        def current_retry_count
+          @current_retry_count || 0
+        end
+
         def retry_on(array)
           @retry_on = array
         end
