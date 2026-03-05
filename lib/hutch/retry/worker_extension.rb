@@ -37,7 +37,7 @@ module Hutch
         else
           acknowledge_error(delivery_info, properties, @broker, ex)
         end
-        handle_error(properties, payload, consumer, ex)
+        handle_error(properties, payload, consumer, ex, delivery_info)
       end
 
       def handle_retry(consumer, delivery_info, properties, payload, ex)

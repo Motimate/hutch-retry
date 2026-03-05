@@ -126,9 +126,7 @@ RSpec.describe Hutch::Worker do
         before { allow(consumer_instance).to receive(:process).and_raise("a consumer error") }
 
         it "logs the error" do
-          Hutch::Config[:error_handlers].each do |backend|
-            expect(backend).to receive(:handle)
-          end
+          expect(worker).to receive(:handle_error).with(properties, payload, consumer, an_instance_of(RuntimeError), delivery_info).and_call_original
           worker.handle_message(consumer, delivery_info, properties, payload)
         end
 
@@ -142,9 +140,7 @@ RSpec.describe Hutch::Worker do
         let(:payload) { "Not Valid JSON" }
 
         it "logs the error" do
-          Hutch::Config[:error_handlers].each do |backend|
-            expect(backend).to receive(:handle)
-          end
+          expect(worker).to receive(:handle_error).with(properties, payload, consumer, an_instance_of(MultiJson::ParseError), delivery_info).and_call_original
           worker.handle_message(consumer, delivery_info, properties, payload)
         end
 
