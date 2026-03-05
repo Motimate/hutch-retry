@@ -9,7 +9,8 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - '3.1.2'
+          - '3.4.2' # motimate-learning-locker ruby version
+          - '3.4.7' # motimate-backend & motimate-notifications-worker ruby version
 
     steps:
     - uses: actions/checkout@v3

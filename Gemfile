@@ -6,7 +6,6 @@ source "https://rubygems.org"
 gemspec
 
 gem "rake", "~> 13.0"
-gem "connection_pool", "~> 2.5.5" # To be compatible for Ruby 3.1.2
 
 group :test do
   gem "rspec", "~> 3.0"
